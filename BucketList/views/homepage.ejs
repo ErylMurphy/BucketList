@@ -6,12 +6,16 @@
         <%= item.item_name %>
         <%= item.done %>
     </h2>
+    <form action="<%= item.id %>_method=DELETE" method="POST">
+      <button type="submit">X</button>
+    </form>
+        <% }); %>
     <form class="new-item-form" method="POST" action="/homepage">
       <label>Activity</label>
-      <input name="activity" type="text">
+      <input name="item_name" type="text">
       <label>Done</label>
       <input name="done" type="boolean" />
       <button type="submit">Add to List </button>
     </form>
-    <% }); %>
+
       <% include ./partials/footer.ejs %>
