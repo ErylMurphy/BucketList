@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4567;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(methodOverride('_method'));
 
 
@@ -32,7 +33,7 @@ app.post("/homepage", (request, response) => {
     });
 });
 
-app.delete("homepage", (request, response) => {
+app.delete("/homepage", (request, response) => {
   const id = Number(request.body.id);
   Item.delete(id)
     .then(() => {
