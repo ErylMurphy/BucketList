@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 const Item = require('./models/Item');
+const bodyParser = require('body-parser');
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
@@ -15,19 +16,19 @@ app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
 });
 
-app.get("/", (request, response) => {
+app.get("/homepage", (request, response) => {
   Item.all() 
   .then(items => {
     const templateData = {};
     templateData.items = items;
-    response.render('homepage', templateData);
+    response.render("homepage", templateData);
   })
 });
 
-app.post('/', (request, response) => {
+app.post("/homepage", (request, response) => {
   const newItem = request.body;
   Item.create(newItem)
     .then(item => {
-      response.redirect(302, '/homepage')
+      response.redirect(302, "/homepage")
     });
 })

@@ -8,7 +8,6 @@ DROP TABLE IF EXISTS items;
 
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
-  column_1 INTEGER NOT NULL,
   item_name TEXT,
   done BOOLEAN
 );

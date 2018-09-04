@@ -2,18 +2,16 @@
 <h1>Bucket List</h1>
   <% items.forEach(item => { %>
     <h2>
-      <%= item.column_1 %>
+      <%= item.id %>
         <%= item.item_name %>
         <%= item.done %>
     </h2>
-    <form class="new-item-form" method="POST" action="/items">
-      <label>Brand</label>
-      <input name="brand">
-      <label>Make</label>
-      <input name="make" type="text" />
-      <label>ImageUrl</label>
-      <input name="image_src" type="text" />
-      <button type="submit">Create Sneaker</button>
+    <form class="new-item-form" method="POST" action="/homepage">
+      <label>Activity</label>
+      <input name="activity" type="text">
+      <label>Done</label>
+      <input name="done" type="boolean" />
+      <button type="submit">Add to List </button>
     </form>
     <% }); %>
       <% include ./partials/footer.ejs %>
