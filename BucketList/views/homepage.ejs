@@ -1,0 +1,19 @@
+<% include ./partials/header.ejs %>
+<h1>Bucket List</h1>
+  <% items.forEach(item => { %>
+    <h2>
+      <%= item.column_1 %>
+        <%= item.item_name %>
+        <%= item.done %>
+    </h2>
+    <form class="new-item-form" method="POST" action="/items">
+      <label>Brand</label>
+      <input name="brand">
+      <label>Make</label>
+      <input name="make" type="text" />
+      <label>ImageUrl</label>
+      <input name="image_src" type="text" />
+      <button type="submit">Create Sneaker</button>
+    </form>
+    <% }); %>
+      <% include ./partials/footer.ejs %>
