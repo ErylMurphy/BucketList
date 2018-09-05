@@ -17,7 +17,7 @@ app.use(methodOverride('_method'));
 
 app.use("/public", express.static("public"));
 
-app.get("/homepage", (request, response) => {
+app.get("/", (request, response) => {
   Item.all()
     .then(items => {
       const templateData = {};
@@ -30,7 +30,7 @@ app.post("/homepage", (request, response) => {
   const newItem = request.body;
   Item.create(newItem)
     .then(item => {
-      response.redirect(302, "/homepage")
+      response.redirect(302, "/")
     });
 });
 

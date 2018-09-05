@@ -1,21 +1,21 @@
 <% include ./partials/header.ejs %>
 <h1>Bucket List</h1>
+<form class="new-item-form" method="POST" action="/homepage">
+  <label>Activity</label>
+  <input name="item_name" type="text">
+  <!-- <label>Done</label>
+  <input name="done" type="boolean" /> -->
+  <button type="submit">Add to List </button>
+</form>
   <% items.forEach(item => { %>
     <h2 class="list">
       <%= item.id %>
         <%= item.item_name %>
-        <%= item.done %>
+        <!-- <%= item.done %> -->
     </h2>
     <!-- <form method="POST">
       <button type="hidden" name="_method" value="delete">X</button>
     </form> -->
         <% }); %>
-    <form class="new-item-form" method="POST" action="/homepage">
-      <label>Activity</label>
-      <input name="item_name" type="text">
-      <label>Done</label>
-      <input name="done" type="boolean" />
-      <button type="submit">Add to List </button>
-    </form>
 
       <% include ./partials/footer.ejs %>

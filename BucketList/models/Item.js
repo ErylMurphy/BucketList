@@ -9,7 +9,7 @@ Item.all = () => {
 
 Item.create = newItem => {
   return db.one(
-    'INSERT INTO items (item_name, done) VALUES (${item_name}, ${done}) RETURNING *',
+    'INSERT INTO items (item_name) VALUES (${item_name}) RETURNING *',
     newItem,
   );
 };
